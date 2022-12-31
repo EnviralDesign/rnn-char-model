@@ -21,8 +21,8 @@ def read_file(filename):
 # Turning a string into a tensor
 
 def char_tensor(string):
-    if len(string) != 200:
-        print('len of string', len(string))
+    # if len(string) != 200:
+        # print('len of string', len(string))
     tensor = torch.zeros(len(string)).long()
     for c in range(len(string)):
         try:
