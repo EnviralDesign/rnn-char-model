@@ -14,12 +14,15 @@ n_characters = len(all_characters)
 
 def read_file(filename):
     # file = unidecode.unidecode(open(filename).read())
-    file = unidecode.unidecode(open(filename, encoding='utf-8').read())
+    # file = unidecode.unidecode(open(filename, encoding='utf-8').read())
+    file = unidecode.unidecode(open(filename, 'r', errors='ignore').read())
     return file, len(file)
 
 # Turning a string into a tensor
 
 def char_tensor(string):
+    if len(string) != 200:
+        print('len of string', len(string))
     tensor = torch.zeros(len(string)).long()
     for c in range(len(string)):
         try:

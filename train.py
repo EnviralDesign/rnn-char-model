@@ -40,6 +40,7 @@ def random_training_set(chunk_len, batch_size):
         start_index = random.randint(0, file_len - chunk_len)
         end_index = start_index + chunk_len + 1
         chunk = file[start_index:end_index]
+        chunk = chunk.ljust(201, ' ')
         inp[bi] = char_tensor(chunk[:-1])
         target[bi] = char_tensor(chunk[1:])
     inp = Variable(inp)
